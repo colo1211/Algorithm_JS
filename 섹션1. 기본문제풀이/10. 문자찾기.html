@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s, t){
+        // 방법 1.
+        // let count =0;
+        // for(let i=0; i<s.length; i++){
+        //     if (s[i]===t) count++;
+        // }
+        // return count;
+
+        // 방법 2. split : 문자열을 구분자를 기준으로 배열로 만든다.
+        let answer= s.split(t);
+        return answer.length-1;
+    }
+
+    let str="COMPUTERPROGRAMMING";
+    console.log(solution(str, 'R'));
+</script>
+<h3>split(구분자)</h3>
+문자열을 구분자 기준으로 배열을 만들어준다.
+</body>
+</html>

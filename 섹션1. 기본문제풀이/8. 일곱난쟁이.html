@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(arr){
+        let answer = arr; // 얕은 복사, answer은 arr과 같은 주소. arr을 바꾸면 answer도 바뀐다.
+        let sum =0;
+        sum = arr.reduce((a,b)=>a+b,0);
+        console.log(sum);
+        for (let i=0; i<arr.length-1; i++){
+            for (let j=i+1; j<arr.length; j++){
+                if ((sum - (arr[i]+arr[j]))===100) {
+                    arr.splice(i,1); // 얕은 복사 이기 때문에 값이 answer에도 동일하게 적용된다.
+                    arr.splice(j-1,1); // i 삭제 이후, 인덱스가 앞으로 당겨지기 때문에 -1
+                }
+            }
+        }
+        return answer;
+    }
+
+    let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+    console.log(solution(arr));
+</script>
+
+<h3> SUM -> reduce or for </h3>
+<ul>
+<li> 9명의 총합을 sum</li>
+<li> sum을 reduce((a,b)=> a+b,0) 으로 설정한다. 누적된 합을 구할 수 있으며, a는 초기값이며 b는 순회하며 a에 더할 수 있다.</li>
+<li> 두번째 인자인 0은 a의 초기값으로 1로 설정하면 1부터 더할 수 있다. </li>
+</ul>
+
+<h3> let answer = arr; </h3>
+<ul>
+<li> 얕은 복사 : arr이 가르키는 곳을 answer도 동일하게 가르킨다.</li>
+<li> arr이 변하면 answer을 변환하지 않아도 자동으로 변환된다.</li>
+</ul>
+
+<h3> .splice(인자1, 인자2 ,[인자3]) </h3>
+<ul>
+    <li>인자 1 : 삭제 시작 Index</li>
+    <li>인자 2 : 시작 Index로 부터 얼마나 삭제? (삭제 개수)</li>
+    <li>인자 3 : 추가 할 value</li>
+</ul>
+
+</body>
+</html>
+

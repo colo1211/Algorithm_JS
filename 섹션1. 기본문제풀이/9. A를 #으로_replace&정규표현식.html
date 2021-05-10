@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s){
+        // 방법 1.
+        // let answer="";
+       // for (let x of s){
+       //     if (x === 'A') answer+= '#';
+       //     else answer += x;
+       // }
+        // return answer;
+
+       // 방법 2. Replace & 정규표현식
+        // 1. 바꿀 target / /내에 작성, g: global(global을 하지 않으면 첫번째 A만 바뀜
+        // 2. Destination 문자를 두번째 인자로 작성
+        let answer = s;
+        answer = answer.replace(/A/g,'#'); // 인자 1 : Target,  인자 2 : Destination 문자
+        return answer;
+
+    }
+
+    let str="BANANA";
+    console.log(solution(str));
+</script>
+<h3> 정규표현식</h3>
+ 1. 바꿀 target / /내에 작성, g: global (global을 하지 않으면 첫번째 A만 바뀜) </br>
+ 2. replace에서 Destination 문자를 두번째 인자로 작성
+</body>
+</html>
