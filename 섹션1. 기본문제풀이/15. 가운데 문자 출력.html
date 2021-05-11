@@ -1,0 +1,21 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s){
+        let answer="";
+
+        if (s.length %2 === 1){ // 홀수면
+            answer += s[Math.floor(s.length/2)];
+        }else { // 짝수면
+            answer += s[Math.floor(s.length/2 - 1)]+ s[Math.floor(s.length/2)];
+        }
+        return answer;
+    }
+    console.log(solution("study"));
+</script>
+</body>
+</html>

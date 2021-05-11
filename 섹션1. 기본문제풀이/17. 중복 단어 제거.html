@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s){
+        // 방법 1.
+       //  let answer=[];
+       // for (let i=0; i<s.length; i++){
+       //     if (i === s.indexOf(s[i])){
+       //         answer.push(s[i]);
+       //     }
+       // }
+       //  return answer;
+        // 방법 2.
+        let answer = [];
+        for (let i=0; i<s.length; i++){
+            answer = s.filter((value, index)=>{
+                if (s.indexOf(value) === index) return value;
+            })
+        }
+        return answer;
+    }
+    let str=["good", "time", "good", "time", "student"];
+    console.log(solution(str));
+</script>
+<h3> 중복 제거 문자열 배열</h3>
+<ul>
+<li> 16번 문제와 동일하게 Index를 활용한 indexOf(s[i])간의 조건식을 활용하여 풀수 있다. </li>
+<li> 조건에 맞는 value들만 출력하기 위해 filter CallBack 함수를 사용하여 answer에 리턴해줄 수 있다.
+    첫번째 인자는 Value, 두번째 인자는 Index 이다.
+</li>
+</ul>
+</body>
+</html>
