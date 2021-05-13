@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s, t){
+        let answer=[];
+        let count =0;
+        const n = s.length;
+        for(let i=0; i<n; i++){
+            count = 0;
+            if (s[i] !== t){
+                for(let j=1; j<n; j++){
+                    count++;
+                    if (s[i-j] === t || s[i+j] === t){
+                        answer.push(count);
+                        break;
+                    }
+                }
+            }else {
+                answer.push(0);
+            }
+        }
+        return answer;
+    }
+
+    let str="teachermode";
+    console.log(solution(str, 'e'));
+</script>
+</body>
+</html>

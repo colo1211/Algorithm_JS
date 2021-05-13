@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    // function solution(s) {
+    //     let answer = "YES";
+    //     let temp = str.split('; ');
+    //     const n = temp[0].length;
+    //     for (let i = 0; i < n; i++) {
+    //         if (temp[0].charCodeAt(i) >= 65 && temp[0].charCodeAt(i) < 90
+    //             && temp[0].charCodeAt(i) >= 97 && temp[0].charCodeAt(i) < 122 &&
+    //             temp[1].charCodeAt(i) >= 65 && temp[1].charCodeAt(i) < 90
+    //             && temp[1].charCodeAt(i) >= 97 && temp[1].charCodeAt(i) < 122
+    //         ) {
+    //             if (temp[0][i].toUpperCase() !== temp[1][n - 1 - i].toUpperCase()) {
+    //                 console.log(temp[0][i]);
+    //                 answer = 'NO';
+    //                 break;
+    //             }
+    //         }
+    //         return answer;
+    //     }
+    // }
+
+    function solution(s){
+        let answer = 'YES';
+        let temp = s.toLowerCase().replace(/[^a-z]/g,'*');
+        const n = s.length;
+        for (let i=0; i<n;i++){
+            if (temp[i] !== temp[n-1-i]){
+                answer='NO';
+                break;
+            }
+        }
+        return answer;
+    }
+    let str="found7, time: study; Yduts: emit, 7Dnuof";
+    console.log(solution(str));
+</script>
+<h2> 정규표현식 활용하여 알파벳 아닌것 거르기 </h2>
+
+</body>
+</html>

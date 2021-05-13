@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s){
+        let answer="";
+        let bucket =[];
+
+        //bucket에 s의 종류 넣기
+        for (let i=0; i<s.length; i++){
+            if (bucket.indexOf(s[i])===-1){
+                bucket.push(s[i]);
+            }
+        }
+        let count=0;
+        for (let i=0; i<bucket.length; i++){
+            count=0;
+            for (let j=0; j<s.length; j++){
+                if(bucket[i] === s[j]) {
+                    count++;
+                }
+            }
+            if (count>1){
+                answer += bucket[i] + String(count);
+            }else {
+                answer += bucket[i];
+            }
+        }
+        return answer;
+    }
+
+    let str="KKHSSSSSSSE";
+    console.log(solution(str));
+</script>
+</body>
+</html>

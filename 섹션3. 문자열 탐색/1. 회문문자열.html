@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s){
+        let answer = 'YES';
+        let n=s.length;
+
+        for (let i=0; i< Math.floor(n/2); i++){
+            if (s[i].toUpperCase()!==s[n-1-i].toUpperCase()){
+                answer = 'NO';
+                break;
+                }
+            }
+        return answer;
+    }
+
+    let str="weooeoG";
+    console.log(solution(str));
+</script>
+</body>
+</html>
+
+
+
+
