@@ -8,29 +8,24 @@
     function solution(arr){
         let answer=0;
         let n=arr.length;
-        let flag=0;
         let dy = [-1,0,1,0];
         let dx = [0,-1,0,1];
-        for (let y=0; y<n;y++){
-            for (let x=0;x<n;x++){
-                for (let z= 0; z < dy.length; z++) {
+
+        for (let y=0; y<n; y++){
+            for (let x=0; x<n; x++){
+                for (let z=0; z<4; z++){
                     let tempX = x+dx[z];
                     let tempY = y+dy[z];
-                    if (flag===0 && tempX>=0 && tempY>=0 && tempX<n && tempY<n){
-                        if ((arr[tempY][tempX] >= arr[y][x])){
-                            console.log(arr[y][x]);
-                            flag=1;
+                    if (tempX>=0 && tempY>=0 && tempX<n && tempY<n){
+                        if (arr[tempY][tempX] >= arr[y][x]){
+                            answer++;
                             break;
                         }
-                    }
-                    if (flag === 1) {
-                        answer++;
-                        flag = 0;
                     }
                 }
             }
         }
-        return 25-answer;
+        return (n*n)-answer;
     }
 
     let arr=[[5, 3, 7, 2, 3],
@@ -40,5 +35,6 @@
              [8, 7, 3, 5, 2]];
     console.log(solution(arr));
 </script>
+<h3> 4방향 탐색 : dx, dy 배열을 운용한다. </h3>
 </body>
 </html>

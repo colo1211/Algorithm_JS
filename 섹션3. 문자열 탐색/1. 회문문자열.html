@@ -6,21 +6,52 @@
 <body>
 <script>
     function solution(s){
+        // 방법 1.
+        // let answer = 'YES';
+        // let n=s.length;
+        //
+        // for (let i=0; i< Math.floor(n/2); i++){
+        //     if (s[i].toUpperCase()!==s[n-1-i].toUpperCase()){
+        //         // answer = 'NO';
+        //         // break;
+        //         return 'NO';// 바로 No 리턴 할 수 있음
+        //         }
+        //     }
+        // return answer;
+
+        // 방법 2.
         let answer = 'YES';
         let n=s.length;
+        s= s.toUpperCase();// s를 소문자로 변경
+        if (s.split('').reverse().join('') !== s){
+            return 'NO';
+        }
 
-        for (let i=0; i< Math.floor(n/2); i++){
-            if (s[i].toUpperCase()!==s[n-1-i].toUpperCase()){
-                answer = 'NO';
-                break;
-                }
-            }
         return answer;
+
     }
 
     let str="weooeoG";
     console.log(solution(str));
 </script>
+<h1> 방법 1 </h1>
+<h3> 대소문자 구분 하지 않는 것은 그냥 대문자로 통일하자! : toUpperCase()</h3>
+<p>반복문을 돌 때, 마지막 종료조건은 문자열 길이의 절반 => Math.floor(n/2)</p>
+<p> Math.floor 하지 않으면 소수점이되는데 돌아가긴 한다. </p>
+<p> 길이가 홀수인 문자열도 중간의 값은 상관없으므로 처리하는 방법은 길이가 짝수인 것과 동일하다. </p>
+
+<h1> 방법 2 : reverse() </h1>
+<p> reverse() -> 배열을 반대로 뒤집는 메소드 (반드시 배열에서만 적용 가능) </p>
+<p>s.split('').reverse().join('')</p>
+<ul>
+    <li> 문자열 s를 배열로 만든다. : split</li>
+    <li> 배열로 만든 대상을 reverse 한다. </li>
+    <li> reverse된 배열을 합쳐서 문자열로 만든다. </li>
+</ul>
+
+<h2> 문자열 -> 배열 : split </h2>
+<h2> 배열 -> 문자열 : join </h2>
+
 </body>
 </html>
 

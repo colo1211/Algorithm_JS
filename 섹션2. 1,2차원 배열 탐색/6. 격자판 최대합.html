@@ -8,27 +8,23 @@
 <script>
     function solution(arr){
         let answer=Number.MIN_SAFE_INTEGER;
-        let n=arr.length;
+        const n=arr.length;
         let sum1=0; let sum2=0;
         for (let y=0; y<n;y++){
-            sum1=0;
+            sum1=0; sum2=0;
             for (let x=0; x<n;x++){
                 sum1 += arr[y][x];
-            }
-            if (answer < sum1) answer = sum1;
-        }
-        for (let x=0; x<n;x++){
-            sum2=0;
-            for (let y=0; y<n ; y++){
                 sum2 += arr[x][y];
             }
-            if (answer < sum2) answer = sum2;
+            // if (answer < sum1) answer = sum1;
+            // if (answer < sum2) answer = sum2;
+            answer = Math.max(answer, sum1, sum2); // 최대값 구하기
         }
         sum1=0; sum2=0;
-
+        // 대각선 합 추출
         for (let i=0; i<n; i++){
             sum1 += arr[i][i];
-            sum2 += arr[i][4-i];
+            sum2 += arr[i][n-1-i]; // 반대편 대각선
         }
         //console.log(sum1, sum2);
         answer = Math.max(answer, sum1, sum2);
@@ -43,5 +39,7 @@
              [19, 13, 30, 13, 19]];
     console.log(solution(arr));
 </script>
+<h3>2차원 배열 -> 기본적으로 C++과 다루는 방법은 동일</h3>
+<h4>최대값 구하는 방법 : Math.max(a,b,c); </h4>
 </body>
 </html>

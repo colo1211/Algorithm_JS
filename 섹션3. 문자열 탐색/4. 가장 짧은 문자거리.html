@@ -7,21 +7,21 @@
 <script>
     function solution(s, t){
         let answer=[];
-        let count =0;
+        let P_Left = Number.MAX_SAFE_INTEGER;
+        let P_Right = Number.MAX_SAFE_INTEGER;
         const n = s.length;
-        for(let i=0; i<n; i++){
-            count = 0;
-            if (s[i] !== t){
-                for(let j=1; j<n; j++){
-                    count++;
-                    if (s[i-j] === t || s[i+j] === t){
-                        answer.push(count);
-                        break;
-                    }
-                }
-            }else {
-                answer.push(0);
-            }
+        // 순방향 탐색
+        for (let i=0; i<n; i++){
+            if (s[i] !== t) P_Left++;
+            else if (s[i]===t) P_Left=0;
+            answer.push(P_Left);
+        }
+        // 역방향 탐색
+        for (let i=n-1; i>=0; i--){
+            if (s[i] !== t) P_Right++;
+            else if (s[i]===t) P_Right=0;
+            // if (answer[i]>P_Right) answer.splice(i,1,P_Right); // 삽입
+            answer[i] = Math.min(answer[i],P_Right);
         }
         return answer;
     }
@@ -29,5 +29,8 @@
     let str="teachermode";
     console.log(solution(str, 'e'));
 </script>
+<h1> 순방향 탐색 + 역방향 탐색 </h1>
+<p> 순방향으로 answer배열에 count 값을 담고, </p>
+<p> 역방향으로 기존에 구한 값보다 작은 값을 담는다. Math.min() , splice </p>
 </body>
 </html>
