@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function isPrime(num){
+        if(num===1) return false; // 1은 소수가 아니므로 바로 반환
+        if (num%2 ===0 && num!==2) return false; // 짝수는 소수가 아니므로 바로 반환
+        else if (num%2 ===1){ // 홀수일 시
+            for (let i=3; i<Math.sqrt(num); i+=2){
+                if (num % i ===0){ // 나눠 떨어진다면 소수가 아니다.
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+    function solution(arr){
+        let answer=[];
+        const n = arr.length;
+        for (let i=0; i<n; i++){
+            let temp = Number(arr[i].toString().split('').reverse().join(''));
+            //console.log(temp);
+            if (isPrime(temp)) answer.push(temp);
+        }
+        return answer;
+    }
+
+    let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+    console.log(solution(arr));
+</script>
+</body>
+</html>
